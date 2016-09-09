@@ -172,7 +172,7 @@ function getNum(str) {
 //图片轮播
 function step() {
     var imgs = $("imgs");
-    var left = imgs.style.left = "0px";
+    // var left = imgs.style.left = "0px";
     //进度点
     var indexP = 0;
     var points = document.getElementsByClassName("poin");
