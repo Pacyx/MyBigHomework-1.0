@@ -172,7 +172,7 @@ function getNum(str) {
 //图片轮播
 function step() {
     var imgs = $("imgs");
-    // var left = imgs.style.left = "0px";
+    var left = imgs.style.left = "0px";
     //进度点
     var indexP = 0;
     var points = document.getElementsByClassName("poin");
@@ -361,8 +361,58 @@ function tab() {
         tabview_0.style.display = "none";
     }
 
-    eventUtil.addHandler(tabbtn_0, 'click', tabchange_0);
+    
+ //获取数据
+   function getDate(num,element) {
+       get('http://study.163.com/webDev/couresByCategory.htm',{
+        pageNo:1,
+        psize:20,
+        type:num
+       },function(date){
+        var data=JSON.parse(data)
+        for(var i =0 ;i<data.length;i++){
+            //给每个课程创建一个div,然后插入到元素中去
+            var oTeam =document.createElement('div');
+            oTeam.classname='m-team';
+            element.appendChild(oTeam);
+            //创建课程元素里面的各个模块
+            var oImg = document.createElement('img');
+            var oP = document.createElement('p');
+            var oDiv = document.createElement('div');
+            var oSpan = document.createElement('span');
+            var oStrong = document.createElement('strong');
+            var oA = document.createElement('a');
+            //给这些模块添加属性和内容，然后插到各个课程div中
+            oImg.src = data.list[i].middlePhotoUrl;
+            oP.className = 'coursename f-toe';
+            oP.innerHTML = data.list[i].name;
+            oDiv.className = 'provider';
+            oDiv.innerHTML = data.list[i].provider;
+            oSpan.innerHTML = data.list[i].learnerCount;
+            if (!data.list[i].categoryName) {
+                data.list[i].categoryName = '无';
+            }
+            oA.innerHTML = '<img src="' + data.list[i].middlePhotoUrl + '" /><h3>' + data.list[i].name + '</h3><span>' + data.list[i].learnerCount + '人在学</span><p class="categoryname">发布者：' + data.list[i].provider + '</br>分类：' + data.list[i].categoryName + '</p><p class="description">' + data.list[i].description + '</p>';
+            if (data.list[i].price == 0) {
+                oStrong.innerHTML = '免费';
+            } else {
+                oStrong.innerHTML = '￥' + data.list[i].price;
+            }
+            oTeam.appendChild(oImg);
+            oTeam.appendChild(oP);
+            oTeam.appendChild(oDiv);
+            oTeam.appendChild(oSpan);
+            oTeam.appendChild(oStrong);
+            oTeam.appendChild(oA);
+        }
+        
+       })
+   }
+   eventUtil.addHandler(tabbtn_0, 'click', tabchange_0);
     eventUtil.addHandler(tabbtn_1, 'click', tabchange_1);
+   getData(10, tabview_0);
+   getData(20, tabview_1);
+
 }
 
 //加载页面事件

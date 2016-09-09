@@ -3,7 +3,7 @@ body {
 }
 
 /*响应式*/
-/*
+
 @media screen and (max-width:1250px) {
     .g-hd .m-topnav .wrap, .g-hd .m-botnav {
         width: 960px;
@@ -96,7 +96,7 @@ body {
     .g-bd .g-bot .g-mn {
         width: 970px;
     }
-}*/
+}
 /*头部*/
 
 .header {
@@ -679,7 +679,23 @@ li {
     height: 20px;
     /*background-color: black;*/
 }
-
+/*课程列表*/
+.m-team{
+    position: relative;
+    float: left;
+    width: 225px;
+    height: 228px;
+    margin: 10px;
+    background: #fff;
+    box-shadow: 0 1px 1px 1px #e6e6e6;
+    font: 12px/12px 'Microsoft YaHei';
+}
+.m-team img {
+    width: 223px;
+    height: 124px;
+    margin: 1px 1px 10px 1px;
+}
+/*页码*/
 .page {
     display: block;
     float: left;
