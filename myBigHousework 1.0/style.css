@@ -26,7 +26,7 @@ body {
     width: 100%;
     /*margin: 0 auto;*/
     /*width: 1652px;*/
-    background-color: yellow;
+    background-color: #fff;
 }
 
 #ts {
@@ -572,7 +572,7 @@ li {
     margin-top: 2px;
     width: 970px;
     height: 1240px;
-    background-color: blue;
+    background-color: #fff;
     overflow: visible;
 }
 
@@ -580,7 +580,7 @@ li {
     margin-top: 2px;
     width: 970px;
     height: 1240px;
-    background-color: black;
+    background-color: #fff;
     overflow: visible;
 }
 
@@ -607,6 +607,26 @@ li {
     height: 124px;
     margin: 1px 1px 10px 1px;
 }
+.team .coursename {
+    width: 214px;
+    height: 12px;
+    color: #333;
+    padding-left: 5px;
+}
+
+.team span {
+    color: #999999;
+    margin-left: 5px;
+    padding: 0 4px 0 18px;
+    font-size: 10px;
+    border: 1px solid #dddddd;
+    border-radius: 2px;
+    background: url(image/spirit.png) no-repeat -35px -20px;
+}
+.team .provider {
+    color: #999;
+    padding: 10px 5px;
+}
 .team a{
     display: none;
 }
@@ -616,13 +636,34 @@ li {
     position: absolute;
     top: 0px;
     left: 0px;
-    width: 400px;
     min-height: 250px;
     background-color: #fff;
     z-index: 999;
 }
 .team a img{
     float: left;
+}
+.team h3{
+    font: 20px/26px 'Microsoft YaHei';
+    margin: 0 10px 12px 233px;
+    color: #333;
+}
+.team a span {
+    font: 12px/12px 'Microsoft YaHei';
+    border: none;
+    color: #666;
+}
+.team a .categoryname {
+    height: 40px;
+    font: 12px/20px 'Microsoft YaHei';
+    padding: 10px 0 0 233px;
+    color: #666;
+}
+.team a .description{
+    text-align: left;
+    width: 426px;
+    padding-left: 15px;
+    font: 14px/24px 'Microsoft YaHei';
 }
 /*页码*/
 .page {
@@ -764,7 +805,10 @@ li {
     background-color: #fff;
     overflow: hidden;
 }
-
+.listroll{
+    width: 223px;
+    height: 720px
+}
 /*尾部*/
 
 .footer {

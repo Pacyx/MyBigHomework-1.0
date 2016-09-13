@@ -403,7 +403,7 @@ function tab() {
                         data.list[i].categoryName = '无';
                     }
                     // 不清楚 createElement 和 innerHTML 哪个性能较好，所以在生成弹窗时使用了innerHTML
-                    oA.innerHTML = '<img src="' + data.list[i].middlePhotoUrl + '" /><h3>' + data.list[i].name + '</h3><span>' + data.list[i].learnerCount + '人在学</span><p class="categoryname">发布者：' + data.list[i].provider + '</br>分类：' + data.list[i].categoryName + '</p><p class="description">' + data.list[i].description + '</p>';
+                    oA.innerHTML = '<img src="' + data.list[i].middlePhotoUrl + '" /><h3>' + data.list[i].name + '</h3><span>' + data.list[i].learnerCount + '人在学</span><p class="categoryname clearf">发布者：' + data.list[i].provider + '</br>分类：' + data.list[i].categoryName + '</p><p class="description">' + data.list[i].description + '</p>';
                     if (data.list[i].price == 0) {
                         oStrong.innerHTML = '免费';
                     } else {
