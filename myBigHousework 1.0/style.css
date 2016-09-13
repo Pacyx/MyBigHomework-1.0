@@ -828,6 +828,14 @@ li {
     background: rgba(0, 0, 0, 0.8);
 }
 
+/*排行列表*/
+.list{
+    width: 223px;
+    height: 720px;
+    background-color: red;
+    overflow: hidden;
+}
+
 /*尾部*/
 
 .footer {
@@ -962,3 +970,7 @@ li {
     text-decoration: none;
     font: 15px/30px 'Microsoft YaHei';
 }
+
+
+
+

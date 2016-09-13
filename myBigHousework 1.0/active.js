@@ -97,7 +97,8 @@ function addLoadEvent(func) {
 // }
 
 // 设置参数
-function serialize(data) { 
+
+function serialize(data) { // 设置参数
     if (!data) return '';
     var pairs = [];
     for (var name in data) {
@@ -325,12 +326,21 @@ function signIn() {
     focus(1);
 
     function openSign() {
-        oSignwindow.style.display = "block";
+       // if (getCookie('loginSuc')) {
+       //         oOpen.value="已关注"；
+               // oSignwindow.style.display = "none";
+           // }else{
+               oSignwindow.style.display = "block";
+           // }
     }
 
     function closeSign() {
         oSignwindow.style.display = "none";
     }
+
+    // function (argument) {
+    //     // body...
+    // }
     eventUtil.addHandler(oClose, 'click', closeSign);
     eventUtil.addHandler(oOpen, 'click', openSign);
 }
@@ -340,6 +350,8 @@ function tab() {
     var tabbtn_1 = document.getElementById("tab_1");
     var tabview_0 = document.getElementById("tabview_0");
     var tabview_1 = document.getElementById("tabview_1");
+    // var tabview_0 = document.getElementsByClassName("tabview_0");
+    // var tabview_1 = document.getElementsByClassName("tabview_1");
     var tabbtn = document.getElementById("tabbtn");
     var tabview = document.getElementById("tabview");
 
@@ -363,12 +375,13 @@ function tab() {
 
     
  //获取数据
-   function getDate(num,element) {
+    function getData(num,element) {
+      
        get('http://study.163.com/webDev/couresByCategory.htm',{
         pageNo:1,
         psize:20,
         type:num
-       },function(date){
+       },function(data){
         var data=JSON.parse(data)
         for(var i =0 ;i<data.length;i++){
             //给每个课程创建一个div,然后插入到元素中去
@@ -406,17 +419,37 @@ function tab() {
             oTeam.appendChild(oA);
         }
         
-       })
-   }
-   eventUtil.addHandler(tabbtn_0, 'click', tabchange_0);
-    eventUtil.addHandler(tabbtn_1, 'click', tabchange_1);
-   getData(10, tabview_0);
-   getData(20, tabview_1);
+       });
 
+       
+   }
+  
+     
+    // getList();
+    eventUtil.addHandler(tabbtn_0, 'click', tabchange_0);
+    eventUtil.addHandler(tabbtn_1, 'click', tabchange_1);
+    getData(10, tabview_0);
+    getData(20, tabview_1);
+     
+}
+ //获取课表
+
+//热门列表
+function getList() {
+    var oList=document.getElementsByClassName('list');
+    // var oList=document.getElementsByClassName('tabview_0');
+    get('http://study.163.com/webDev/hotcouresByCategory.htm',{},function (data) {
+        var arr =JSON.parse(data);
+        for(var i=0;i<20;i++){
+            var oA=document.createElement('a');
+            oA.innerHTML='<div><img src="' + arr[i].smallPhotoUrl + '" /></div><p>' + arr[i].name + '</p><span>' + arr[i].learnerCount + '</span>';
+            oList[0].appendChild(oA);
+        }
+    });
 }
 
 //加载页面事件
-window.onload = function() {}
+// window.onload = function() {}
 addLoadEvent(step);
 addLoadEvent(closeTs);
 addLoadEvent(getCookie);
@@ -424,5 +457,7 @@ addLoadEvent(setCookie);
 addLoadEvent(playvideo);
 addLoadEvent(signIn);
 addLoadEvent(tab);
+addLoadEvent(getList);
+// addLoadEvent(getData);
 // addLoadEvent(clickPoint);  
 // addLoadEvent(intervalId);
