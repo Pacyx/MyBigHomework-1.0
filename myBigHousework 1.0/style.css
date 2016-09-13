@@ -5,97 +5,7 @@ body {
 /*响应式*/
 
 @media screen and (max-width:1250px) {
-    .g-hd .m-topnav .wrap, .g-hd .m-botnav {
-        width: 960px;
-    }
-    .g-bd .m-slide a {
-        width: 1364px;
-        margin: 0 auto;
-    }
-    .g-bd .m-slide img {
-        margin: 0 -144px;
-    }
-    .g-bd .g-top .m-product {
-        width: 1065px;
-    }
-    .g-bd .m-product .m-wrap1 {
-        width: 285px;
-        margin: 0 35px;
-    }
-    .g-bd .m-workplace {
-        width: 1364px;
-        overflow: hidden;
-    }
-    .g-bd .m-workplace .box {
-        width: 1616px;
-        margin: 0 -140px;
-    }
-    .g-bd .g-bot {
-        width: 980px;
-    }
-    .g-bd .g-bot .g-mn {
-        width: 734px;
-    }
-}
-
-@media screen and (min-width:1250px) {
-    .g-hd .m-topnav .wrap, .g-hd .m-botnav {
-        width: 1200px;
-    }
-    .g-bd .m-slide a {
-        width: 1616px;
-        margin: 0 auto;
-    }
-    .g-bd .m-slide img {
-        margin: 0 -18px;
-    }
-    .g-bd .g-top .m-product {
-        width: 1270px;
-    }
-    .g-bd .m-product .m-wrap1 {
-        width: 339px;
-        margin: 0 42px;
-    }
-    .g-bd .m-workplace .box {
-        width: 1616px;
-        margin: 0 auto;
-    }
-    .g-bd .g-bot {
-        width: 1216px;
-    }
-    .g-bd .g-bot .g-mn {
-        width: 970px;
-    }
-}
-
-@media \0screen {
-    .g-hd .m-topnav .wrap, .g-hd .m-botnav {
-        width: 1200px;
-    }
-    .g-bd .m-slide a {
-        width: 1616px;
-        margin: 0 auto;
-    }
-    .g-bd .m-slide img {
-        margin: 0 -18px;
-    }
-    .g-bd .g-top .m-product {
-        width: 1270px;
-    }
-    .g-bd .m-product .m-wrap1 {
-        width: 339px;
-        margin: 0 42px;
-    }
-    .g-bd .m-workplace .box {
-        width: 1616px;
-        margin: 0 auto;
-    }
-    .g-bd .g-bot {
-        width: 1216px;
-    }
-    .g-bd .g-bot .g-mn {
-        width: 970px;
-    }
+    未完待续
 }
 /*头部*/
 
@@ -663,6 +573,7 @@ li {
     width: 970px;
     height: 1240px;
     background-color: blue;
+    overflow: visible;
 }
 
 #tabview_1 {
@@ -670,6 +581,7 @@ li {
     width: 970px;
     height: 1240px;
     background-color: black;
+    overflow: visible;
 }
 
 #tabpage {
@@ -680,20 +592,37 @@ li {
     /*background-color: black;*/
 }
 /*课程列表*/
-.m-team{
+.team{
     position: relative;
     float: left;
-    width: 225px;
+    width: 220px;
     height: 228px;
-    margin: 10px;
+    margin: 7px;
     background: #fff;
     box-shadow: 0 1px 1px 1px #e6e6e6;
     font: 12px/12px 'Microsoft YaHei';
 }
-.m-team img {
-    width: 223px;
+.team img {
+    width: 220px;
     height: 124px;
     margin: 1px 1px 10px 1px;
+}
+.team a{
+    display: none;
+}
+.team:hover a{
+    display: block;
+    float: left;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 400px;
+    min-height: 250px;
+    background-color: #fff;
+    z-index: 999;
+}
+.team a img{
+    float: left;
 }
 /*页码*/
 .page {
@@ -832,7 +761,7 @@ li {
 .list{
     width: 223px;
     height: 720px;
-    background-color: red;
+    background-color: #fff;
     overflow: hidden;
 }
 
