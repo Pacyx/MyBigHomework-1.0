@@ -21,6 +21,15 @@ var eventUtil = {
     // }
 }
 
+//获取样式
+
+function getStyle(obj, attr) { //获取样式
+    if (obj.currentStyle) {
+        return obj.currentStyle[attr];
+    } else {
+        return getComputedStyle(obj)[attr];
+    }
+}
 
 // 仿jQuery id 选择器
 var $ = function(id) {
@@ -440,6 +449,25 @@ function getList() {
     });
 }
 
+//热门列表滚动
+
+function listRoll() {   
+    var oList=document.getElementsByClassName('list');
+    var listpos=oList[0].style.top="0px";
+
+    function l_roll() {
+        var olistpos=getNum(oList[0].style.top);
+        if (olistpos != -700 ){
+           oList[0].style.top=olistpos-70+'px';
+        }else{
+            clearInterval(intervalId_1);
+            oList[0].style.top=0+'px';
+            if(listRoll)
+                listRoll(); 
+        }
+    }
+    var intervalId_1 = setInterval(l_roll,1000);
+}
 //加载页面事件
 // window.onload = function() {}
 addLoadEvent(step);
@@ -450,6 +478,8 @@ addLoadEvent(playvideo);
 addLoadEvent(signIn);
 addLoadEvent(tab);
 addLoadEvent(getList);
+addLoadEvent(listRoll);
+// addLoadEvent(getStyle);
 // addLoadEvent(getData);
 // addLoadEvent(clickPoint);  
 // addLoadEvent(intervalId);

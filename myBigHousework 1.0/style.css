@@ -800,14 +800,57 @@ li {
 
 /*排行列表*/
 .list{
+    position:relative;
+    top:0;
     width: 223px;
     height: 720px;
     background-color: #fff;
-    overflow: hidden;
+    transition: 1s;
+    /*overflow: hidden;*/
 }
 .listroll{
     width: 223px;
-    height: 720px
+    height: 720px;
+    overflow:hidden;
+
+}
+
+.list a {
+    display: block;
+    height: 50px;
+    margin: 20px;
+}
+
+.list div {
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    float: left;
+    margin-right: 12px;
+}
+
+.list img {
+    height: 50px;
+    margin-left: -35px;
+}
+
+.list p {
+    width: 121px;
+    height: 14px;
+    font: 14px/14px 'Microsoft YaHei';
+    color: #333;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    margin-bottom: 13px;
+}
+
+.list span {
+    font: 12px/12px 'Microsoft YaHei';
+    padding-left: 16px;
+    border: none;
+    background: url(images/spirit.png) no-repeat -35px -20px;
+    color: #666;
 }
 /*尾部*/
 
