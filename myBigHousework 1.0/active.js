@@ -320,6 +320,7 @@ function signIn() {
     var oSignwindow = $('showSignin');
     var oClose = $('closesign');
     var oOpen = $('gz');
+    var oButton=$('button');
 
     function focus(i) {
         oInput[i + 1].onfocus = function() {
@@ -333,25 +334,47 @@ function signIn() {
     }
     focus(0);
     focus(1);
-
+    
     function openSign() {
-       // if (getCookie('loginSuc')) {
-       //         oOpen.value="已关注"；
-               // oSignwindow.style.display = "none";
-           // }else{
-               oSignwindow.style.display = "block";
-           // }
+        if(getCookie('loginSuc')){
+            // oOpen.value='已关注';
+            oSignwindow.style.display = "none";
+
+        }else{
+            oSignwindow.style.display = "block";
+        }
+               
+               
     }
 
     function closeSign() {
-        oSignwindow.style.display = "none";
+         oSignwindow.style.display = "none";
     }
-
-    // function (argument) {
-    //     // body...
-    // }
+    
+    function login() {
+        var username1=oInput[0].value;
+        var password1=oInput[1].value;
+        get('http://study.163.com/webDev/login.htm',{
+            userName:username1,
+            password:password1
+        },function (a) {
+            if (a==='1') {
+                 oSignwindow.style.display = "none";
+                 setCookie('loginSuc','1',36500);
+                 get('http://study.163.com/webDev/attention.htm','',function (b) {
+                     if (b==='1') {
+                        set('followSuc','1',36500);
+                        oOpen.value='已关注';
+                     }
+                 })
+            }else{
+                alert('账号或密码错误，请重新输入');
+            }
+        })
+    }
     eventUtil.addHandler(oClose, 'click', closeSign);
     eventUtil.addHandler(oOpen, 'click', openSign);
+    eventUtil.addHandler(oButton,'click',login);
 }
 
 function tab() {
@@ -390,7 +413,7 @@ function tab() {
                 pageNo: 1,
                 psize: 20,
                 type: num
-            }, function(data) { //设置课程
+            }, function(data) { 
                 var data = JSON.parse(data)
                 for (var i = 0; i < data.list.length; i++) {
                     var oTeam = document.createElement('div');
@@ -411,7 +434,6 @@ function tab() {
                     if (!data.list[i].categoryName) {
                         data.list[i].categoryName = '无';
                     }
-                    // 不清楚 createElement 和 innerHTML 哪个性能较好，所以在生成弹窗时使用了innerHTML
                     oA.innerHTML = '<img src="' + data.list[i].middlePhotoUrl + '" /><h3>' + data.list[i].name + '</h3><span>' + data.list[i].learnerCount + '人在学</span><p class="categoryname clearf">发布者：' + data.list[i].provider + '</br>分类：' + data.list[i].categoryName + '</p><p class="description">' + data.list[i].description + '</p>';
                     if (data.list[i].price == 0) {
                         oStrong.innerHTML = '免费';
