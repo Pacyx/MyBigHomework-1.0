@@ -2,4 +2,5 @@
     after git add  change readme first time and then git add
 
     change the readme without git add and use the git diff for whatch
-
+    
+     我要撤销一次提交
